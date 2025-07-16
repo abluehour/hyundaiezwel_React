@@ -1,0 +1,39 @@
+/* 모든 요소의 기본 마진/패딩 제거 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: brown;
+  text-align: center;
+  margin: 0;
+  padding: 10px; /* 내부 여백만 추가 */
+}
+
+#nav {
+  background-color: orange;
+  text-align: center;
+  margin: 0;
+  padding: 10px; /* 내부 여백만 추가 */
+}
+
+#content {
+  background-color: yellow;
+  text-align: center;
+  margin: 0;
+  padding: 10px; /* 내부 여백만 추가 */
+}
+
+#footer {
+  background-color: green;
+  text-align: center;
+  margin: 0;
+  padding: 10px; /* 내부 여백만 추가 */
+}
