@@ -1,6 +1,5 @@
 import "./App.css";
-import Jsx from "./components/jsx.jsx";
-
+import Jsx from "./components/jsx.jsx"; // Importing the Jsx component
 function App() {
   return (
     <div className="App">
