@@ -1,0 +1,13 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header{
+  height: 40px;
+  line-height: 40px;
+  background-color: #777;
+  text-align: center ;
+}
