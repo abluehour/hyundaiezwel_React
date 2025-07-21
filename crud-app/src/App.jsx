@@ -86,13 +86,32 @@ function App() {
       }
     }
     content = <Article title={title} body={body}></Article>;
+    // contextControl 객체 변수에 두개의 태그를 담아서 표현
+    //JSX 최상위 태그가 반드시 있어여함
+    //의미없는 태그를 활용해서 최상위 태그 구성 가능함
+
     contextControl = (
-      <li>
-        <a href={"/update/" + id} onClick={(event) => {
-      event.preventDefault();
-      setMode("UPDATE");
-    }}>Update</a>
-      </li>
+      <>
+        <li>
+          <a
+            href={"/update/" + id}
+            onClick={(event) => {
+              event.preventDefault();
+              setMode("UPDATE");
+            }}>Update
+          </a>
+        </li>
+        <li>
+          <a href="#" value="Delete" onClick={(e) => {
+              e.preventDefault();
+              const newTopics = topics.filter((topic) => topic.id !== id); // 선택된 id를 제외한 새로운 배열 생성
+              setTopics(newTopics); // 상태 업데이트
+              setMode("WELCOME"); // 삭제 후에 웰컴 모드로 전환
+              setId(null); // id 초기화
+            }}
+          >Delete</a>
+        </li>
+      </>
     );
   } else if (mode === "CREATE") {
     //create 메뉼르 클릭하면 입력창을 표현(Create 컴포넌트 사용 -> create)
@@ -120,30 +139,34 @@ function App() {
         }}
       ></Create>
     );
-  } else if (mode ==='UPDATE'){
-    let title, body = null;
+  } else if (mode === "UPDATE") {
+    let title,
+      body = null;
     for (let i = 0; i < topics.length; i++) {
       console.log(topics[i].id, id);
       if (topics[i].id === id) {
         title = topics[i].title;
         body = topics[i].body;
       }
-    }   
-    content = <Update title={title} body={body} onUpdate={
-      (title, body) => {
-        const newTopics =[...topics]; // 기존 topics 배열을 복사
-        const updatedTopic = { id: id, title:title, body:body }; // 업데이트된 토픽 객체 생성
-        for(let i = 0; i < newTopics.length; i++) {
-          if (newTopics[i].id === id) {
-            newTopics[i] = updatedTopic; // 해당 ID의 토픽을 업데이트
-            break;
+    }
+    content = (
+      <Update
+        title={title}
+        body={body}
+        onUpdate={(title, body) => {
+          const newTopics = [...topics]; // 기존 topics 배열을 복사
+          const updatedTopic = { id: id, title: title, body: body }; // 업데이트된 토픽 객체 생성
+          for (let i = 0; i < newTopics.length; i++) {
+            if (newTopics[i].id === id) {
+              newTopics[i] = updatedTopic; // 해당 ID의 토픽을 업데이트
+              break;
+            }
           }
-        }
-        setTopics(newTopics); // 상태 업데이트
-        setMode("READ"); // 업데이트 후에 읽기 모드로 전환
-
-      }
-    }></Update>
+          setTopics(newTopics); // 상태 업데이트
+          setMode("READ"); // 업데이트 후에 읽기 모드로 전환
+        }}
+      ></Update>
+    );
   }
   return (
     <div className="App">
