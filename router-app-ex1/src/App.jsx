@@ -46,7 +46,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/bookInfo" element={<BookInfo books={books} />} />
-        <Route path="/books/:id" element={<BookDetail books={books} />} />
+        <Route path="/books/:abc" element={<BookDetail books={books} />} />
         {/* :id는 동적 라우팅을 위한 파라미터 */}
         <Route path="*" element={<div>잘못된 경로입니다.</div>} />
       </Routes>

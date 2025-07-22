@@ -4,7 +4,7 @@ import Create from "./component/Create";
 import Update from "./component/Update";
 
 function Header(props) {
-  console.log("props", props.title);
+  console.log("props", props.abc);
   return (
     <header>
       <h1>
@@ -15,7 +15,7 @@ function Header(props) {
             props.onChangeMode();
           }}
         >
-          {props.title}
+          {props.abc}
         </a>
       </h1>
     </header>
@@ -171,7 +171,7 @@ function App() {
   return (
     <div className="App">
       <Header
-        title="WEB"
+        abc="WEB"
         onChangeMode={() => {
           setMode("WELCOME");
         }}

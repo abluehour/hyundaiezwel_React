@@ -11,8 +11,8 @@ const Update = (props) => {
       <form onSubmit={(event)=>{
         event.preventDefault();
         // submit 이벤트 발생시에 입력된 데이터 추출
-        const title = event.target.title.value;
-        const body = event.target.body.value;
+        //const title = event.target.title.value;
+        //const body = event.target.body.value;
         props.onUpdate(title, body); //onUpdate는 인수 2개가 필요함 - 입력된 값 title과 body
       }}>
         <p>
