@@ -5,7 +5,6 @@ const reducer = (currentState, action) => {
       if(!currentState) {
         return {
           count: 0,
-          text: 'Hello Redux',
         };
       }
 
@@ -14,6 +13,11 @@ const reducer = (currentState, action) => {
 
       ////////////////////////////////////////////
       // 여기서 state를 변경하는 로직을 작성합니다.
+      if(action.type === "ADD") {
+        newState.count += 1; // count 값을 1 증가
+      } else if(action.type === "MINUS") {
+        newState.count -= 1; // count 값을 1 감소
+      }
 
       ///////////////////////////////////////////
       //반환시킨 값을 반환

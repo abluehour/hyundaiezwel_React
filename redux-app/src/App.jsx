@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import Left1 from './component/Left1.jsx'
 import Right1 from './component/Right1.jsx'
 
